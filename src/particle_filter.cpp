@@ -20,21 +20,21 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
 	//   x, y, theta and their uncertainties from GPS) and all weights to 1. 
 	// Add random Gaussian noise to each particle.
 	// NOTE: Consult particle_filter.h for more information about this method (and others in this file).
-        num_particles = 10;
+        num_particles = 400;
         // noise generation
         default_random_engine gen;
         normal_distribution<double> x_part(x, std[0]);
         normal_distribution<double> y_part(y, std[1]);
-        normal_distribution<double> theta_part(0, std[2]);
+        normal_distribution<double> theta_part(theta, std[2]);
   
-	for (unsigned int i=0; i< num_particles; i++)
+	for (unsigned int i=0; i< num_particles; ++i)
 		{
 		Particle particle;
 		particle.id = i;
 		particle.x = x_part(gen);
 		particle.y = y_part(gen);
 		particle.theta = theta_part(gen);
-		particle.weight = 1;
+		particle.weight = 1.0;
 		particles.push_back(particle);
 		weights.push_back(particle.weight);
 		//cout << "Particle " << particle.id << "x " << particle.x << "y " << particle.y << "theta " << particle.theta << endl;
@@ -49,12 +49,12 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 	//  http://www.cplusplus.com/reference/random/default_random_engine/
 	
 	default_random_engine gen;
-	for (unsigned int i=0; i<num_particles; i++)
+	for (unsigned int i=0; i<num_particles; ++i)
 		{
 		double theta_new= particles[i].theta + yaw_rate*delta_t;
-		if (yaw_rate > 0.00001) {
+		if (abs(yaw_rate) > 0.00001) {
 			particles[i].x = particles[i].x + (velocity/yaw_rate) * (sin(theta_new) - sin(particles[i].theta));
-			particles[i].y = particles[i].y + (velocity/yaw_rate) * (cos(particles[i].theta) + cos(theta_new));
+			particles[i].y = particles[i].y + (velocity/yaw_rate) * (cos(particles[i].theta) - cos(theta_new));
 			}
 		else{
 			particles[i].x = velocity*delta_t*cos(particles[i].theta);
@@ -65,12 +65,11 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 		//adding Gaussian random noise to each particle
 		normal_distribution<double> particle_x(particles[i].x, std_pos[0]);
 		normal_distribution<double> particle_y(particles[i].y, std_pos[1]);
-		normal_distribution<double> particle_theta(particles[i].theta , std_pos[3]);
+		normal_distribution<double> particle_theta(particles[i].theta , std_pos[2]);
 
-		particles[i].x = particle_x(gen);
-		particles[i].y = particle_y(gen);
+		particles[i].x =  particle_x(gen);
+		particles[i].y =  particle_y(gen);
 		particles[i].theta = particle_theta(gen);	
-		//cout << "particle after" << particles[i].x << endl;	
 		}
 }
 
@@ -89,7 +88,7 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, Map map
         //	 cout << "landmark x " << i << " " << map_landmarks.landmark_list[i].x_f << endl;}		
 
 
-	for (int i=0; i < predicted.size(); ++i){
+	for (unsigned int i=0; i < predicted.size(); ++i){
 		LandmarkObs LandmarkA;
 		double min_dist;
 
@@ -97,7 +96,7 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, Map map
 		LandmarkA.x = map_landmarks.landmark_list[0].x_f;
 		LandmarkA.y = map_landmarks.landmark_list[0].y_f;
 		min_dist = dist(LandmarkA.x, LandmarkA.y, predicted[i].x, predicted[i].y);
-		for (int j=1; j <  map_landmarks.landmark_list.size(); ++j) {
+		for (unsigned int j=1; j <  map_landmarks.landmark_list.size(); ++j) {
 			double dist_land = dist(map_landmarks.landmark_list[j].x_f, map_landmarks.landmark_list[j].y_f,
 			predicted[i].x, predicted[i].y);
 			if (dist_land < min_dist) {
@@ -173,7 +172,8 @@ void ParticleFilter::resample() {
 	discrete_distribution<> dd(weights.begin(), weights.end());
 	vector<Particle> newParticles;
 	for (int i = 0; i < num_particles; ++i){
-		newParticles.push_back(particles[dd(gen)]);}	
+		newParticles.push_back(particles[dd(gen)]);
+	}	
 	particles = newParticles;
 
 }

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/helper_functions.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/helper_functions.h
 sstream
 -
 fstream
@@ -16,9 +16,9 @@ math.h
 vector
 -
 map.h
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/map.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/map.h
 
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/main.cpp
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/main.cpp
 iostream
 -
 ctime
@@ -28,13 +28,13 @@ iomanip
 random
 -
 particle_filter.h
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/particle_filter.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/particle_filter.h
 helper_functions.h
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/helper_functions.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/helper_functions.h
 
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/map.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/map.h
 
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/particle_filter.cpp
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/particle_filter.cpp
 random
 -
 algorithm
@@ -46,11 +46,11 @@ numeric
 math.h
 -
 particle_filter.h
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/particle_filter.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/particle_filter.h
 helper_functions.h
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/helper_functions.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/helper_functions.h
 
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/particle_filter.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/particle_filter.h
 helper_functions.h
-/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/src/helper_functions.h
+/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/src/helper_functions.h
 

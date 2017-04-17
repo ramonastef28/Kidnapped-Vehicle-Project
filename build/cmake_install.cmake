@@ -1,4 +1,4 @@
-# Install script for directory: /Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project
+# Install script for directory: /Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/CarND-Kidnapped-Vehicle-Project/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/ramona/Documents/Udacity_ND/SelfDrivingCars/term2/Proj3/Kidnapped-Vehicle-Project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
